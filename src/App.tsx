@@ -1,9 +1,10 @@
 import React, { useState } from "react";
+import logo from "./assets/brainy-bunch-logo.png";
 
 // Main Application Component
 const App = () => {
   // State for navigation
-  const [currentPage, setCurrentPage] = useState("pricing");
+  const [currentPage, setCurrentPage] = useState("home");
   
   // Navigation function
   const navigateTo = (page) => {
@@ -15,20 +16,69 @@ const App = () => {
     <nav className="flex justify-between items-center p-4 bg-blue-600 text-white shadow-md">
       <div className="flex items-center">
         <img 
-          src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyMDAgMjAwIj48Y2lyY2xlIGN4PSIxMDAiIGN5PSIxMDAiIHI9IjEwMCIgZmlsbD0iI2ZmZiIgc3Ryb2tlPSIjMDAwIiBzdHJva2Utd2lkdGg9IjIiLz48cGF0aCBkPSJNNTAsMTAwIEExMDAsMTAwIDAgMCwxIDE1MCwxMDAiIGZpbGw9IiNmMDAiIC8+PHBhdGggZD0iTTUwLDEwMCBBMTAwLDEwMCAwIDAgLDAgMTUwLDEwMCIgZmlsbD0iIzAwZiIgLz48Y2lyY2xlIGN4PSIxMDAiIGN5PSI4MCIgcj0iMjAiIGZpbGw9IiMwZmYiIC8+PHJlY3QgeD0iOTAiIHk9IjExMCIgd2lkdGg9IjIwIiBoZWlnaHQ9IjIwIiBmaWxsPSIjZmYwIiAvPjx0ZXh0IHg9IjYwIiB5PSIxNjAiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIxNiIgZm9udC13ZWlnaHQ9ImJvbGQiPkJyYWlueSBCdW5jaDwvdGV4dD48dGV4dCB4PSI3MCIgeT0iMTgwIiBmb250LWZhbWlseT0iQXJpYWwiIGZvbnQtc2l6ZT0iMTIiPkFGVEVSIFNDSE9PTCBDTFVCPC90ZXh0Pjwvc3ZnPg==" 
+          src={logo} 
           alt="Brainy Bunch Logo" 
-          className="h-12 w-12 mr-3 rounded-full" 
+          className="logo-navbar mr-3" 
         />
         <h1 className="text-xl font-bold">Brainy Bunch After School Service</h1>
       </div>
-      <ul className="flex gap-4 text-sm">
-        <li><button onClick={() => navigateTo("home")} className="hover:underline">Home</button></li>
-        <li><button onClick={() => navigateTo("priorities")} className="hover:underline">Our Priorities</button></li>
-        <li><button onClick={() => navigateTo("curriculum")} className="hover:underline">Curriculum</button></li>
-        <li><button onClick={() => navigateTo("attendance-calendar")} className="hover:underline">Attendance Calendar</button></li>
-        <li><button onClick={() => navigateTo("pricing")} className="hover:underline">Pricing</button></li>
-        <li><button onClick={() => navigateTo("regulations")} className="hover:underline">Regulations</button></li>
-        <li><button onClick={() => navigateTo("feedback")} className="hover:underline">Feedback</button></li>
+      <ul className="flex gap-4 text-sm items-center">
+        <li>
+          <button
+            onClick={() => navigateTo("home")}
+            className={`min-w-[120px] h-12 px-4 rounded-lg font-semibold transition duration-200 flex items-center justify-center border-2 border-white ${currentPage === 'home' ? 'bg-white text-blue-700 shadow' : 'bg-transparent text-white hover:bg-blue-700 hover:text-white'}`}
+          >
+            Home
+          </button>
+        </li>
+        <li>
+          <button
+            onClick={() => navigateTo("priorities")}
+            className={`min-w-[120px] h-12 px-4 rounded-lg font-semibold transition duration-200 flex items-center justify-center border-2 border-white ${currentPage === 'priorities' ? 'bg-white text-blue-700 shadow' : 'bg-transparent text-white hover:bg-blue-700 hover:text-white'}`}
+          >
+            Our Priorities
+          </button>
+        </li>
+        <li>
+          <button
+            onClick={() => navigateTo("curriculum")}
+            className={`min-w-[120px] h-12 px-4 rounded-lg font-semibold transition duration-200 flex items-center justify-center border-2 border-white ${currentPage === 'curriculum' ? 'bg-white text-blue-700 shadow' : 'bg-transparent text-white hover:bg-blue-700 hover:text-white'}`}
+          >
+            Curriculum
+          </button>
+        </li>
+        <li>
+          <button
+            onClick={() => navigateTo("attendance-calendar")}
+            className={`min-w-[120px] h-12 px-4 rounded-lg font-semibold transition duration-200 flex items-center justify-center border-2 border-white ${currentPage === 'attendance-calendar' ? 'bg-white text-blue-700 shadow' : 'bg-transparent text-white hover:bg-blue-700 hover:text-white'}`}
+          >
+            Attendance Calendar
+          </button>
+        </li>
+        <li>
+          <button
+            onClick={() => navigateTo("pricing")}
+            className={`min-w-[120px] h-12 px-4 rounded-lg font-semibold transition duration-200 flex items-center justify-center border-2 border-white ${currentPage === 'pricing' ? 'bg-white text-blue-700 shadow' : 'bg-transparent text-white hover:bg-blue-700 hover:text-white'}`}
+          >
+            Pricing
+          </button>
+        </li>
+        <li>
+          <button
+            onClick={() => navigateTo("regulations")}
+            className={`min-w-[120px] h-12 px-4 rounded-lg font-semibold transition duration-200 flex items-center justify-center border-2 border-white ${currentPage === 'regulations' ? 'bg-white text-blue-700 shadow' : 'bg-transparent text-white hover:bg-blue-700 hover:text-white'}`}
+          >
+            Regulations
+          </button>
+        </li>
+        <li>
+          <button
+            onClick={() => navigateTo("feedback")}
+            className={`min-w-[120px] h-12 px-4 rounded-lg font-semibold transition duration-200 flex items-center justify-center border-2 border-white ${currentPage === 'feedback' ? 'bg-white text-blue-700 shadow' : 'bg-transparent text-white hover:bg-blue-700 hover:text-white'}`}
+          >
+            Feedback
+          </button>
+        </li>
       </ul>
     </nav>
   );
