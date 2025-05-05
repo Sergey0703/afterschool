@@ -105,7 +105,7 @@ const App = () => {
               onClick={() => navigateTo("feedback")}
               className={`min-w-[120px] h-12 px-4 rounded-lg font-semibold transition duration-200 flex items-center justify-center border-2 border-white ${currentPage === 'feedback' ? 'bg-white text-blue-700 shadow' : 'bg-transparent text-white hover:bg-blue-700 hover:text-white'}`}
             >
-              Feedback
+              Contacts
             </button>
           </li>
         </ul>
@@ -277,7 +277,7 @@ const App = () => {
     </div>
   );
 
-  // Feedback component
+  // Feedback component now renamed to Contacts
   const Feedback = () => {
     const [submitted, setSubmitted] = useState(false);
     const [name, setName] = useState("");
@@ -292,11 +292,42 @@ const App = () => {
 
     return (
       <div className="p-4 md:p-6 max-w-3xl mx-auto">
-        <h2 className="text-xl font-bold mb-4">Feedback</h2>
+        <h2 className="text-xl font-bold mb-4">Contacts</h2>
+        
+        <div className="mb-6 bg-gray-50 p-4 rounded-lg border border-gray-200">
+          <div className="flex flex-col md:flex-row md:justify-between">
+            <div>
+              <h3 className="text-lg font-semibold mb-2">Our Address</h3>
+              <address className="not-italic">
+                Two Mile Community National School,<br />
+                Aughaleemore,<br />
+                Killarney,<br />
+                Co. Kerry,<br />
+                V93 WD82.
+              </address>
+            </div>
+            <div className="mt-4 md:mt-0">
+              <a 
+                href="https://www.google.com/maps/place//@52.0544822,-9.5125504,13z/data=!3m1!4b1!5m1!1e2?entry=ttu&g_ep=EgoyMDI1MDQzMC4xIKXMDSoASAFQAw%3D%3D" 
+                target="_blank"
+                className="inline-block"
+                title="View on Google Maps"
+              >
+                <img 
+                  src="https://www.google.com/images/branding/product/2x/maps_96in128dp.png" 
+                  alt="Google Maps"
+                  className="h-12 w-auto rounded shadow-md hover:shadow-lg transition-shadow duration-200"
+                />
+              </a>
+            </div>
+          </div>
+        </div>
+        
         {submitted ? (
           <p className="text-green-600">Thank you! Your message has been sent.</p>
         ) : (
           <div className="space-y-4">
+            <h3 className="text-lg font-semibold">Send us a message</h3>
             <div>
               <label className="block text-sm font-medium">Name</label>
               <input 
