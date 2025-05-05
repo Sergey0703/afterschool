@@ -112,29 +112,30 @@ const App = () => {
       </div>
       
       {/* Mobile navigation header */}
-      <div className="md:hidden flex justify-between items-center p-4">
+      <div className="md:hidden flex justify-between items-center p-4 bg-blue-600">
         <div className="flex items-center">
           <img 
             src={logo} 
             alt="Brainy Bunch Logo" 
             className="w-14 h-14 rounded-full object-cover mr-2" 
           />
-          <h1 className="text-lg font-bold leading-tight">
+          <h1 className="text-lg font-bold leading-tight text-white">
             Brainy Bunch
           </h1>
         </div>
         <button 
           onClick={toggleMobileMenu}
-          className="text-white p-2"
+          className="p-2 bg-white bg-opacity-20 rounded-md"
+          aria-label="Toggle navigation menu"
         >
           {mobileMenuOpen ? (
             // X icon for close
-            <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
             </svg>
           ) : (
             // Hamburger icon for menu
-            <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
             </svg>
           )}
