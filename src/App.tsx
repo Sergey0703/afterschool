@@ -512,7 +512,7 @@ const App = () => {
         const row = [];
         
         // Fill in days or empty cells
-        weekDays.forEach((day, i) => {
+        weekDays.forEach((day: number | null, i: number) => {
           if (day !== null) {
             const isSelected = selectedDays.includes(day);
             const isWeekend = i >= 5; // Saturday or Sunday
