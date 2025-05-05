@@ -1,13 +1,29 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import logo from "./assets/brainy-bunch-logo.png";
+
+// Определяем типы для страниц
+type PageType = "home" | "priorities" | "curriculum" | "attendance-calendar" | "pricing" | "regulations" | "feedback";
+
+// Интерфейсы для типизации компонентов
+interface PageProps {
+  title: string;
+}
+
+interface WeeklyAttendance {
+  [key: number]: number;
+}
+
+interface WeekMap {
+  [key: number]: (number | null)[];
+}
 
 // Main Application Component
 const App = () => {
   // State for navigation
-  const [currentPage, setCurrentPage] = useState("home");
+  const [currentPage, setCurrentPage] = useState<PageType>("home");
   
   // Navigation function
-  const navigateTo = (page) => {
+  const navigateTo = (page: PageType) => {
     setCurrentPage(page);
   };
 
@@ -87,7 +103,7 @@ const App = () => {
   );
 
   // Basic page component for placeholder pages
-  const Page = ({ title }) => (
+  const Page = ({ title }: PageProps) => (
     <div className="p-6 max-w-3xl mx-auto">
       <h2 className="text-xl font-bold mb-4">{title}</h2>
       <p>Page content for "{title}" will be added soon.</p>
@@ -199,7 +215,7 @@ const App = () => {
               <label className="block text-sm font-medium">Message</label>
               <textarea 
                 className="w-full p-2 border border-gray-300 rounded" 
-                rows="4" 
+                rows={4} 
                 value={message}
                 onChange={(e) => setMessage(e.target.value)}
                 required
@@ -275,8 +291,8 @@ const App = () => {
   const AttendanceCalendar = () => {
     // State management
     const [selectedChild, setSelectedChild] = useState("");
-    const [selectedDays, setSelectedDays] = useState([]);
-    const [weeklyAttendance, setWeeklyAttendance] = useState({1: 0, 2: 0, 3: 0, 4: 0, 5: 0, 6: 0});
+    const [selectedDays, setSelectedDays] = useState<number[]>([]);
+    const [weeklyAttendance, setWeeklyAttendance] = useState<WeeklyAttendance>({1: 0, 2: 0, 3: 0, 4: 0, 5: 0, 6: 0});
     const [showWarning, setShowWarning] = useState(false);
     const [weekendWarning, setWeekendWarning] = useState(false);
     const [saveNotification, setSaveNotification] = useState(false);
@@ -288,7 +304,7 @@ const App = () => {
     const monthName = currentDate.toLocaleString('en-US', { month: 'long' });
     
     // Simple log function
-    const log = (message) => {
+    const log = (message: string) => {
       console.log(`${new Date().toLocaleTimeString()}: ${message}`);
     };
     
@@ -316,11 +332,11 @@ const App = () => {
     };
     
     // Calculate calendar days
-    const getDaysInMonth = (year, month) => {
+    const getDaysInMonth = (year: number, month: number): number => {
       return new Date(year, month + 1, 0).getDate();
     };
     
-    const getFirstDayOfMonth = (year, month) => {
+    const getFirstDayOfMonth = (year: number, month: number): number => {
       const firstDay = new Date(year, month, 1).getDay();
       return firstDay === 0 ? 6 : firstDay - 1; // 0 = Monday, 6 = Sunday
     };
@@ -329,8 +345,8 @@ const App = () => {
     const firstDayOffset = getFirstDayOfMonth(year, month);
     
     // Create week map for current month
-    const createWeekMap = () => {
-      const weekMap = {};
+    const createWeekMap = (): WeekMap => {
+      const weekMap: WeekMap = {};
       let currentDay = 1;
       let currentWeek = 1;
       
@@ -367,7 +383,7 @@ const App = () => {
     const weekMap = createWeekMap();
     
     // Change selected child
-    const handleChildChange = (e) => {
+    const handleChildChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
       const child = e.target.value;
       setSelectedChild(child);
       log(`Selected child: ${child}`);
@@ -383,7 +399,7 @@ const App = () => {
     };
     
     // Toggle a day selection
-    const toggleDay = (day, dayIndex) => {
+    const toggleDay = (day: number | null, dayIndex: number) => {
       if (!selectedChild) {
         log("Please select a child first");
         setShowWarning(true); // Show warning message
@@ -442,14 +458,14 @@ const App = () => {
     };
     
     // Update weekly attendance stats
-    const updateWeeklyAttendance = (days) => {
-      const newWeeklyAttendance = {1: 0, 2: 0, 3: 0, 4: 0, 5: 0, 6: 0};
+    const updateWeeklyAttendance = (days: number[]) => {
+      const newWeeklyAttendance: WeeklyAttendance = {1: 0, 2: 0, 3: 0, 4: 0, 5: 0, 6: 0};
       
       days.forEach(day => {
         // Find which week this day belongs to
         for (const [week, weekDays] of Object.entries(weekMap)) {
           if (weekDays.includes(day)) {
-            newWeeklyAttendance[week]++;
+            newWeeklyAttendance[parseInt(week)]++;
             break;
           }
         }
@@ -497,7 +513,7 @@ const App = () => {
         
         // Fill in days or empty cells
         weekDays.forEach((day, i) => {
-          if (day) {
+          if (day !== null) {
             const isSelected = selectedDays.includes(day);
             const isWeekend = i >= 5; // Saturday or Sunday
             
