@@ -99,58 +99,53 @@ const App = () => {
         <h3 className="text-lg font-medium mb-2">Useful Resources for Setting Up an After School Service in Ireland</h3>
         <p className="mb-4">Below is a list of key resources that are essential for researching and establishing an After School Service in compliance with Irish regulations, particularly those set by Tusla:</p>
         
-        <ul className="space-y-4 list-disc pl-5">
-          <li>
+        <div className="space-y-4">
+          <div>
             <strong>Tusla Early Years Inspectorate - School Age Services:</strong>
             <br />The official section of the Tusla website specifically covering regulations and standards for school-age childcare services. This is the primary source for registration information and compliance details.
             <br /><a href="https://www.tusla.ie/services/family-community-support/school-age-services/" target="_blank" className="text-blue-600 hover:underline">https://www.tusla.ie/services/family-community-support/school-age-services/</a>
-          </li>
-          <li>
+          </div>
+          <div>
             <strong>Tusla Main Website:</strong>
             <br />The overall website for the Child and Family Agency, where you can find general information, publications, and news related to their services.
             <br /><a href="https://www.tusla.ie/" target="_blank" className="text-blue-600 hover:underline">https://www.tusla.ie/</a>
-          </li>
-          <li>
+          </div>
+          <div>
             <strong>National Childcare Scheme (NCS):</strong>
             <br />Information about the government scheme that provides financial subsidies to parents towards the cost of childcare. Registering as a provider allows you to accept these subsidies.
             <br /><a href="https://www.ncs.gov.ie/" target="_blank" className="text-blue-600 hover:underline">https://www.ncs.gov.ie/</a>
-          </li>
-          <li>
+          </div>
+          <div>
             <strong>Citizens Information - Regulation of School Age Childcare:</strong>
             <br />A useful resource providing clear, accessible summaries of the regulations for school-age childcare in Ireland, including Tusla registration.
             <br /><a href="https://www.citizensinformation.ie/en/education/pre-school-education-and-childcare/regulation-of-school-age-childcare/" target="_blank" className="text-blue-600 hover:underline">https://www.citizensinformation.ie/en/education/pre-school-education-and-childcare/regulation-of-school-age-childcare/</a>
-          </li>
-          <li>
-            <strong>Citizens Information Main Website:</strong>
-            <br />A broad resource for public services information in Ireland, useful for various aspects of setting up a business and understanding regulations.
-            <br /><a href="https://www.citizensinformation.ie/" target="_blank" className="text-blue-600 hover:underline">https://www.citizensinformation.ie/</a>
-          </li>
-          <li>
+          </div>
+          <div>
             <strong>National Quality Guidelines for School Age Childcare Services (2020):</strong>
             <br />A key document outlining a framework for providing high-quality services that go beyond minimum regulatory requirements. Essential reading for program development.
             <br /><a href="https://assets.gov.ie/88025/5e6c734d-7d21-47f2-ae28-b84b581939d9.pdf" target="_blank" className="text-blue-600 hover:underline">https://assets.gov.ie/88025/5e6c734d-7d21-47f2-ae28-b84b581939d9.pdf</a> (Direct PDF Link)
-          </li>
-          <li>
+          </div>
+          <div>
             <strong>County Childcare Committees (CCCs):</strong>
             <br />Local organisations that provide support, advice, and training to childcare providers in their specific county. Finding your local CCC is highly recommended.
             <br /><a href="https://myccc.ie/" target="_blank" className="text-blue-600 hover:underline">https://myccc.ie/</a>
-          </li>
-          <li>
+          </div>
+          <div>
             <strong>Local Enterprise Offices (LEOs):</strong>
             <br />Provide advice, training, and financial support (grants) to small businesses in Ireland. Contacting your local LEO is beneficial for business planning and funding. This link is the national portal.
             <br /><a href="https://www.localenterprise.ie/" target="_blank" className="text-blue-600 hover:underline">https://www.localenterprise.ie/</a>
-          </li>
-          <li>
+          </div>
+          <div>
             <strong>Early Childhood Ireland:</strong>
             <br />A representative organisation for the early years and school-age childcare sector, offering membership, support, training, and resources.
             <br /><a href="https://www.earlychildhoodireland.ie/" target="_blank" className="text-blue-600 hover:underline">https://www.earlychildhoodireland.ie/</a>
-          </li>
-          <li>
+          </div>
+          <div>
             <strong>Department of Children, Equality, Disability, Integration and Youth:</strong>
             <br />The government department responsible for policy related to childcare and early years services. Their website provides policy updates and information on government initiatives.
             <br /><a href="https://www.gov.ie/en/organisation/department-of-children-equality-disability-integration-and-youth/" target="_blank" className="text-blue-600 hover:underline">https://www.gov.ie/en/organisation/department-of-children-equality-disability-integration-and-youth/</a>
-          </li>
-        </ul>
+          </div>
+        </div>
         
         <p className="mt-4">Using these resources is crucial for ensuring your After School Service meets all legal requirements, operates safely, and provides a high-quality experience for children.</p>
       </div>
@@ -269,6 +264,7 @@ const App = () => {
         </tbody>
       </table>
       <p>We offer flexible conditions and try to accommodate every family's needs. Contact us for a personalized quote.</p>
+      <p className="mt-4">We are a registered provider for the <a href="https://www.ncs.gov.ie/" target="_blank" className="text-blue-700 underline hover:text-blue-900">National Childcare Scheme (NCS)</a>. Find out how NCS can help reduce your After School costs.</p>
     </div>
   );
 
