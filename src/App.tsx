@@ -18,11 +18,14 @@ const App = () => {
         <img 
           src={logo} 
           alt="Brainy Bunch Logo" 
-          className="logo-navbar mr-3" 
+          className="logo-navbar -my-2" 
         />
-        <h1 className="text-xl font-bold">Brainy Bunch After School Service</h1>
+        <h1 className="text-xl font-bold leading-tight">
+          Brainy Bunch<br />
+          After School Service
+        </h1>
       </div>
-      <ul className="flex gap-4 text-sm items-center">
+      <ul className="flex gap-2 text-sm items-center ml-12">
         <li>
           <button
             onClick={() => navigateTo("home")}
