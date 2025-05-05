@@ -21,90 +21,195 @@ interface WeekMap {
 const App = () => {
   // State for navigation
   const [currentPage, setCurrentPage] = useState<PageType>("home");
+  // State for mobile menu
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   
   // Navigation function
   const navigateTo = (page: PageType) => {
     setCurrentPage(page);
+    setMobileMenuOpen(false); // Close mobile menu when navigating
+  };
+
+  // Toggle mobile menu
+  const toggleMobileMenu = () => {
+    setMobileMenuOpen(!mobileMenuOpen);
   };
 
   // Navbar component with logo
   const Navbar = () => (
-    <nav className="flex justify-between items-center p-4 bg-blue-600 text-white shadow-md">
-      <div className="flex items-center">
-        <img 
-          src={logo} 
-          alt="Brainy Bunch Logo" 
-          className="logo-navbar -my-2" 
-        />
-        <h1 className="text-xl font-bold leading-tight">
-          Brainy Bunch<br />
-          After School Service
-        </h1>
+    <nav className="bg-blue-600 text-white shadow-md">
+      {/* Desktop navigation */}
+      <div className="hidden md:flex justify-between items-center p-4">
+        <div className="flex items-center">
+          <img 
+            src={logo} 
+            alt="Brainy Bunch Logo" 
+            className="logo-navbar -my-2" 
+          />
+          <h1 className="text-xl font-bold leading-tight">
+            Brainy Bunch<br />
+            After School Service
+          </h1>
+        </div>
+        <ul className="flex gap-2 text-sm items-center ml-12">
+          <li>
+            <button
+              onClick={() => navigateTo("home")}
+              className={`min-w-[120px] h-12 px-4 rounded-lg font-semibold transition duration-200 flex items-center justify-center border-2 border-white ${currentPage === 'home' ? 'bg-white text-blue-700 shadow' : 'bg-transparent text-white hover:bg-blue-700 hover:text-white'}`}
+            >
+              Home
+            </button>
+          </li>
+          <li>
+            <button
+              onClick={() => navigateTo("priorities")}
+              className={`min-w-[120px] h-12 px-4 rounded-lg font-semibold transition duration-200 flex items-center justify-center border-2 border-white ${currentPage === 'priorities' ? 'bg-white text-blue-700 shadow' : 'bg-transparent text-white hover:bg-blue-700 hover:text-white'}`}
+            >
+              Our Priorities
+            </button>
+          </li>
+          <li>
+            <button
+              onClick={() => navigateTo("curriculum")}
+              className={`min-w-[120px] h-12 px-4 rounded-lg font-semibold transition duration-200 flex items-center justify-center border-2 border-white ${currentPage === 'curriculum' ? 'bg-white text-blue-700 shadow' : 'bg-transparent text-white hover:bg-blue-700 hover:text-white'}`}
+            >
+              Curriculum
+            </button>
+          </li>
+          <li>
+            <button
+              onClick={() => navigateTo("attendance-calendar")}
+              className={`min-w-[120px] h-12 px-4 rounded-lg font-semibold transition duration-200 flex items-center justify-center border-2 border-white ${currentPage === 'attendance-calendar' ? 'bg-white text-blue-700 shadow' : 'bg-transparent text-white hover:bg-blue-700 hover:text-white'}`}
+            >
+              Attendance Calendar
+            </button>
+          </li>
+          <li>
+            <button
+              onClick={() => navigateTo("pricing")}
+              className={`min-w-[120px] h-12 px-4 rounded-lg font-semibold transition duration-200 flex items-center justify-center border-2 border-white ${currentPage === 'pricing' ? 'bg-white text-blue-700 shadow' : 'bg-transparent text-white hover:bg-blue-700 hover:text-white'}`}
+            >
+              Pricing
+            </button>
+          </li>
+          <li>
+            <button
+              onClick={() => navigateTo("regulations")}
+              className={`min-w-[120px] h-12 px-4 rounded-lg font-semibold transition duration-200 flex items-center justify-center border-2 border-white ${currentPage === 'regulations' ? 'bg-white text-blue-700 shadow' : 'bg-transparent text-white hover:bg-blue-700 hover:text-white'}`}
+            >
+              Regulations
+            </button>
+          </li>
+          <li>
+            <button
+              onClick={() => navigateTo("feedback")}
+              className={`min-w-[120px] h-12 px-4 rounded-lg font-semibold transition duration-200 flex items-center justify-center border-2 border-white ${currentPage === 'feedback' ? 'bg-white text-blue-700 shadow' : 'bg-transparent text-white hover:bg-blue-700 hover:text-white'}`}
+            >
+              Feedback
+            </button>
+          </li>
+        </ul>
       </div>
-      <ul className="flex gap-2 text-sm items-center ml-12">
-        <li>
-          <button
-            onClick={() => navigateTo("home")}
-            className={`min-w-[120px] h-12 px-4 rounded-lg font-semibold transition duration-200 flex items-center justify-center border-2 border-white ${currentPage === 'home' ? 'bg-white text-blue-700 shadow' : 'bg-transparent text-white hover:bg-blue-700 hover:text-white'}`}
-          >
-            Home
-          </button>
-        </li>
-        <li>
-          <button
-            onClick={() => navigateTo("priorities")}
-            className={`min-w-[120px] h-12 px-4 rounded-lg font-semibold transition duration-200 flex items-center justify-center border-2 border-white ${currentPage === 'priorities' ? 'bg-white text-blue-700 shadow' : 'bg-transparent text-white hover:bg-blue-700 hover:text-white'}`}
-          >
-            Our Priorities
-          </button>
-        </li>
-        <li>
-          <button
-            onClick={() => navigateTo("curriculum")}
-            className={`min-w-[120px] h-12 px-4 rounded-lg font-semibold transition duration-200 flex items-center justify-center border-2 border-white ${currentPage === 'curriculum' ? 'bg-white text-blue-700 shadow' : 'bg-transparent text-white hover:bg-blue-700 hover:text-white'}`}
-          >
-            Curriculum
-          </button>
-        </li>
-        <li>
-          <button
-            onClick={() => navigateTo("attendance-calendar")}
-            className={`min-w-[120px] h-12 px-4 rounded-lg font-semibold transition duration-200 flex items-center justify-center border-2 border-white ${currentPage === 'attendance-calendar' ? 'bg-white text-blue-700 shadow' : 'bg-transparent text-white hover:bg-blue-700 hover:text-white'}`}
-          >
-            Attendance Calendar
-          </button>
-        </li>
-        <li>
-          <button
-            onClick={() => navigateTo("pricing")}
-            className={`min-w-[120px] h-12 px-4 rounded-lg font-semibold transition duration-200 flex items-center justify-center border-2 border-white ${currentPage === 'pricing' ? 'bg-white text-blue-700 shadow' : 'bg-transparent text-white hover:bg-blue-700 hover:text-white'}`}
-          >
-            Pricing
-          </button>
-        </li>
-        <li>
-          <button
-            onClick={() => navigateTo("regulations")}
-            className={`min-w-[120px] h-12 px-4 rounded-lg font-semibold transition duration-200 flex items-center justify-center border-2 border-white ${currentPage === 'regulations' ? 'bg-white text-blue-700 shadow' : 'bg-transparent text-white hover:bg-blue-700 hover:text-white'}`}
-          >
-            Regulations
-          </button>
-        </li>
-        <li>
-          <button
-            onClick={() => navigateTo("feedback")}
-            className={`min-w-[120px] h-12 px-4 rounded-lg font-semibold transition duration-200 flex items-center justify-center border-2 border-white ${currentPage === 'feedback' ? 'bg-white text-blue-700 shadow' : 'bg-transparent text-white hover:bg-blue-700 hover:text-white'}`}
-          >
-            Feedback
-          </button>
-        </li>
-      </ul>
+      
+      {/* Mobile navigation header */}
+      <div className="md:hidden flex justify-between items-center p-4">
+        <div className="flex items-center">
+          <img 
+            src={logo} 
+            alt="Brainy Bunch Logo" 
+            className="w-14 h-14 rounded-full object-cover mr-2" 
+          />
+          <h1 className="text-lg font-bold leading-tight">
+            Brainy Bunch
+          </h1>
+        </div>
+        <button 
+          onClick={toggleMobileMenu}
+          className="text-white p-2"
+        >
+          {mobileMenuOpen ? (
+            // X icon for close
+            <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+            </svg>
+          ) : (
+            // Hamburger icon for menu
+            <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
+          )}
+        </button>
+      </div>
+      
+      {/* Mobile navigation menu */}
+      {mobileMenuOpen && (
+        <div className="md:hidden pb-4 px-4 bg-blue-600">
+          <ul className="flex flex-col gap-2">
+            <li>
+              <button
+                onClick={() => navigateTo("home")}
+                className={`w-full py-2 px-4 rounded-lg font-semibold transition duration-200 flex items-center justify-center border border-white ${currentPage === 'home' ? 'bg-white text-blue-700 shadow' : 'bg-transparent text-white'}`}
+              >
+                Home
+              </button>
+            </li>
+            <li>
+              <button
+                onClick={() => navigateTo("priorities")}
+                className={`w-full py-2 px-4 rounded-lg font-semibold transition duration-200 flex items-center justify-center border border-white ${currentPage === 'priorities' ? 'bg-white text-blue-700 shadow' : 'bg-transparent text-white'}`}
+              >
+                Our Priorities
+              </button>
+            </li>
+            <li>
+              <button
+                onClick={() => navigateTo("curriculum")}
+                className={`w-full py-2 px-4 rounded-lg font-semibold transition duration-200 flex items-center justify-center border border-white ${currentPage === 'curriculum' ? 'bg-white text-blue-700 shadow' : 'bg-transparent text-white'}`}
+              >
+                Curriculum
+              </button>
+            </li>
+            <li>
+              <button
+                onClick={() => navigateTo("attendance-calendar")}
+                className={`w-full py-2 px-4 rounded-lg font-semibold transition duration-200 flex items-center justify-center border border-white ${currentPage === 'attendance-calendar' ? 'bg-white text-blue-700 shadow' : 'bg-transparent text-white'}`}
+              >
+                Attendance Calendar
+              </button>
+            </li>
+            <li>
+              <button
+                onClick={() => navigateTo("pricing")}
+                className={`w-full py-2 px-4 rounded-lg font-semibold transition duration-200 flex items-center justify-center border border-white ${currentPage === 'pricing' ? 'bg-white text-blue-700 shadow' : 'bg-transparent text-white'}`}
+              >
+                Pricing
+              </button>
+            </li>
+            <li>
+              <button
+                onClick={() => navigateTo("regulations")}
+                className={`w-full py-2 px-4 rounded-lg font-semibold transition duration-200 flex items-center justify-center border border-white ${currentPage === 'regulations' ? 'bg-white text-blue-700 shadow' : 'bg-transparent text-white'}`}
+              >
+                Regulations
+              </button>
+            </li>
+            <li>
+              <button
+                onClick={() => navigateTo("feedback")}
+                className={`w-full py-2 px-4 rounded-lg font-semibold transition duration-200 flex items-center justify-center border border-white ${currentPage === 'feedback' ? 'bg-white text-blue-700 shadow' : 'bg-transparent text-white'}`}
+              >
+                Feedback
+              </button>
+            </li>
+          </ul>
+        </div>
+      )}
     </nav>
   );
 
   // Basic page component for placeholder pages
   const Page = ({ title }: PageProps) => (
-    <div className="p-6 max-w-3xl mx-auto">
+    <div className="p-4 md:p-6 max-w-3xl mx-auto">
       <h2 className="text-xl font-bold mb-4">{title}</h2>
       <p>Page content for "{title}" will be added soon.</p>
     </div>
@@ -112,7 +217,7 @@ const App = () => {
 
   // Regulations component with resources list
   const Regulations = () => (
-    <div className="p-6 max-w-4xl mx-auto">
+    <div className="p-4 md:p-6 max-w-4xl mx-auto">
       <h2 className="text-xl font-bold mb-4">Regulations</h2>
       <div className="mb-4">
         <h3 className="text-lg font-medium mb-2">Useful Resources for Setting Up an After School Service in Ireland</h3>
@@ -122,47 +227,47 @@ const App = () => {
           <div>
             <strong>Tusla Early Years Inspectorate - School Age Services:</strong>
             <br />The official section of the Tusla website specifically covering regulations and standards for school-age childcare services. This is the primary source for registration information and compliance details.
-            <br /><a href="https://www.tusla.ie/services/family-community-support/school-age-services/" target="_blank" className="text-blue-600 hover:underline">https://www.tusla.ie/services/family-community-support/school-age-services/</a>
+            <br /><a href="https://www.tusla.ie/services/family-community-support/school-age-services/" target="_blank" className="text-blue-600 hover:underline break-words">www.tusla.ie/services/family-community-support/school-age-services/</a>
           </div>
           <div>
             <strong>Tusla Main Website:</strong>
             <br />The overall website for the Child and Family Agency, where you can find general information, publications, and news related to their services.
-            <br /><a href="https://www.tusla.ie/" target="_blank" className="text-blue-600 hover:underline">https://www.tusla.ie/</a>
+            <br /><a href="https://www.tusla.ie/" target="_blank" className="text-blue-600 hover:underline">www.tusla.ie</a>
           </div>
           <div>
             <strong>National Childcare Scheme (NCS):</strong>
             <br />Information about the government scheme that provides financial subsidies to parents towards the cost of childcare. Registering as a provider allows you to accept these subsidies.
-            <br /><a href="https://www.ncs.gov.ie/" target="_blank" className="text-blue-600 hover:underline">https://www.ncs.gov.ie/</a>
+            <br /><a href="https://www.ncs.gov.ie/" target="_blank" className="text-blue-600 hover:underline">www.ncs.gov.ie</a>
           </div>
           <div>
             <strong>Citizens Information - Regulation of School Age Childcare:</strong>
             <br />A useful resource providing clear, accessible summaries of the regulations for school-age childcare in Ireland, including Tusla registration.
-            <br /><a href="https://www.citizensinformation.ie/en/education/pre-school-education-and-childcare/regulation-of-school-age-childcare/" target="_blank" className="text-blue-600 hover:underline">https://www.citizensinformation.ie/en/education/pre-school-education-and-childcare/regulation-of-school-age-childcare/</a>
+            <br /><a href="https://www.citizensinformation.ie/en/education/pre-school-education-and-childcare/regulation-of-school-age-childcare/" target="_blank" className="text-blue-600 hover:underline break-words">www.citizensinformation.ie/en/education/pre-school-education-and-childcare/regulation-of-school-age-childcare/</a>
           </div>
           <div>
             <strong>National Quality Guidelines for School Age Childcare Services (2020):</strong>
             <br />A key document outlining a framework for providing high-quality services that go beyond minimum regulatory requirements. Essential reading for program development.
-            <br /><a href="https://assets.gov.ie/88025/5e6c734d-7d21-47f2-ae28-b84b581939d9.pdf" target="_blank" className="text-blue-600 hover:underline">https://assets.gov.ie/88025/5e6c734d-7d21-47f2-ae28-b84b581939d9.pdf</a> (Direct PDF Link)
+            <br /><a href="https://assets.gov.ie/88025/5e6c734d-7d21-47f2-ae28-b84b581939d9.pdf" target="_blank" className="text-blue-600 hover:underline break-words">assets.gov.ie/88025/5e6c734d-7d21-47f2-ae28-b84b581939d9.pdf</a> (Direct PDF Link)
           </div>
           <div>
             <strong>County Childcare Committees (CCCs):</strong>
             <br />Local organisations that provide support, advice, and training to childcare providers in their specific county. Finding your local CCC is highly recommended.
-            <br /><a href="https://myccc.ie/" target="_blank" className="text-blue-600 hover:underline">https://myccc.ie/</a>
+            <br /><a href="https://myccc.ie/" target="_blank" className="text-blue-600 hover:underline">myccc.ie</a>
           </div>
           <div>
             <strong>Local Enterprise Offices (LEOs):</strong>
             <br />Provide advice, training, and financial support (grants) to small businesses in Ireland. Contacting your local LEO is beneficial for business planning and funding. This link is the national portal.
-            <br /><a href="https://www.localenterprise.ie/" target="_blank" className="text-blue-600 hover:underline">https://www.localenterprise.ie/</a>
+            <br /><a href="https://www.localenterprise.ie/" target="_blank" className="text-blue-600 hover:underline">www.localenterprise.ie</a>
           </div>
           <div>
             <strong>Early Childhood Ireland:</strong>
             <br />A representative organisation for the early years and school-age childcare sector, offering membership, support, training, and resources.
-            <br /><a href="https://www.earlychildhoodireland.ie/" target="_blank" className="text-blue-600 hover:underline">https://www.earlychildhoodireland.ie/</a>
+            <br /><a href="https://www.earlychildhoodireland.ie/" target="_blank" className="text-blue-600 hover:underline">www.earlychildhoodireland.ie</a>
           </div>
           <div>
             <strong>Department of Children, Equality, Disability, Integration and Youth:</strong>
             <br />The government department responsible for policy related to childcare and early years services. Their website provides policy updates and information on government initiatives.
-            <br /><a href="https://www.gov.ie/en/organisation/department-of-children-equality-disability-integration-and-youth/" target="_blank" className="text-blue-600 hover:underline">https://www.gov.ie/en/organisation/department-of-children-equality-disability-integration-and-youth/</a>
+            <br /><a href="https://www.gov.ie/en/organisation/department-of-children-equality-disability-integration-and-youth/" target="_blank" className="text-blue-600 hover:underline break-words">www.gov.ie/en/organisation/department-of-children-equality-disability-integration-and-youth/</a>
           </div>
         </div>
         
@@ -185,7 +290,7 @@ const App = () => {
     };
 
     return (
-      <div className="p-6 max-w-3xl mx-auto">
+      <div className="p-4 md:p-6 max-w-3xl mx-auto">
         <h2 className="text-xl font-bold mb-4">Feedback</h2>
         {submitted ? (
           <p className="text-green-600">Thank you! Your message has been sent.</p>
@@ -238,50 +343,52 @@ const App = () => {
 
   // Updated Pricing component with new hours and price
   const Pricing = () => (
-    <div className="p-6 max-w-3xl mx-auto">
+    <div className="p-4 md:p-6 max-w-3xl mx-auto">
       <h2 className="text-xl font-bold mb-4">Pricing and Services</h2>
       <p className="mb-4">Below are the standard services and corresponding rates:</p>
-      <table className="table-auto w-full border border-gray-300 mb-6">
-        <thead className="bg-gray-100">
-          <tr>
-            <th className="border px-4 py-2 text-left">Service</th>
-            <th className="border px-4 py-2 text-left">Description</th>
-            <th className="border px-4 py-2 text-left">Price</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td className="border px-4 py-2">Daily Stay</td>
-            <td className="border px-4 py-2">Supervision after school from 2:30 p.m. to 5:30 p.m.</td>
-            <td className="border px-4 py-2">€15 per day</td>
-          </tr>
-          <tr>
-            <td className="border px-4 py-2">Snack</td>
-            <td className="border px-4 py-2">Light meal in the afternoon</td>
-            <td className="border px-4 py-2">included</td>
-          </tr>
-          <tr>
-            <td className="border px-4 py-2">Homework Help</td>
-            <td className="border px-4 py-2">Assistance with homework</td>
-            <td className="border px-4 py-2">included</td>
-          </tr>
-          <tr>
-            <td className="border px-4 py-2">Creative Activities</td>
-            <td className="border px-4 py-2">Drawing, crafts, modeling</td>
-            <td className="border px-4 py-2">included</td>
-          </tr>
-          <tr>
-            <td className="border px-4 py-2">Monthly Discount</td>
-            <td className="border px-4 py-2">For monthly payments</td>
-            <td className="border px-4 py-2">10%</td>
-          </tr>
-          <tr>
-            <td className="border px-4 py-2">Family Discount</td>
-            <td className="border px-4 py-2">For two or more children</td>
-            <td className="border px-4 py-2">additional 5%</td>
-          </tr>
-        </tbody>
-      </table>
+      <div className="overflow-x-auto">
+        <table className="table-auto w-full border border-gray-300 mb-6 min-w-full">
+          <thead className="bg-gray-100">
+            <tr>
+              <th className="border px-2 md:px-4 py-2 text-left">Service</th>
+              <th className="border px-2 md:px-4 py-2 text-left">Description</th>
+              <th className="border px-2 md:px-4 py-2 text-left">Price</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td className="border px-2 md:px-4 py-2">Daily Stay</td>
+              <td className="border px-2 md:px-4 py-2">Supervision after school from 2:30 p.m. to 5:30 p.m.</td>
+              <td className="border px-2 md:px-4 py-2">€15 per day</td>
+            </tr>
+            <tr>
+              <td className="border px-2 md:px-4 py-2">Snack</td>
+              <td className="border px-2 md:px-4 py-2">Light meal in the afternoon</td>
+              <td className="border px-2 md:px-4 py-2">included</td>
+            </tr>
+            <tr>
+              <td className="border px-2 md:px-4 py-2">Homework Help</td>
+              <td className="border px-2 md:px-4 py-2">Assistance with homework</td>
+              <td className="border px-2 md:px-4 py-2">included</td>
+            </tr>
+            <tr>
+              <td className="border px-2 md:px-4 py-2">Creative Activities</td>
+              <td className="border px-2 md:px-4 py-2">Drawing, crafts, modeling</td>
+              <td className="border px-2 md:px-4 py-2">included</td>
+            </tr>
+            <tr>
+              <td className="border px-2 md:px-4 py-2">Monthly Discount</td>
+              <td className="border px-2 md:px-4 py-2">For monthly payments</td>
+              <td className="border px-2 md:px-4 py-2">10%</td>
+            </tr>
+            <tr>
+              <td className="border px-2 md:px-4 py-2">Family Discount</td>
+              <td className="border px-2 md:px-4 py-2">For two or more children</td>
+              <td className="border px-2 md:px-4 py-2">additional 5%</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
       <p>We offer flexible conditions and try to accommodate every family's needs. Contact us for a personalized quote.</p>
       <p className="mt-4">We are a registered provider for the <a href="https://www.ncs.gov.ie/" target="_blank" className="text-blue-700 underline hover:text-blue-900">National Childcare Scheme (NCS)</a>. Find out how NCS can help reduce your After School costs.</p>
     </div>
@@ -493,16 +600,16 @@ const App = () => {
       
       // Header row with day names
       calendar.push(
-        <div key="header" className="grid grid-cols-8 gap-1 mb-2">
+        <div key="header" className="grid grid-cols-8 gap-1 mb-2 text-xs md:text-base">
           {dayNames.map((day, index) => (
             <div 
               key={`header-${day}`} 
-              className={`text-center font-bold p-2 ${index >= 5 ? "bg-red-100" : ""}`}
+              className={`text-center font-bold p-1 md:p-2 ${index >= 5 ? "bg-red-100" : ""}`}
             >
               {day}
             </div>
           ))}
-          <div className="text-center font-bold p-2 bg-blue-50 text-blue-800">Days in week</div>
+          <div className="text-center font-bold p-1 md:p-2 bg-blue-50 text-blue-800">Days in week</div>
         </div>
       );
       
@@ -521,7 +628,7 @@ const App = () => {
               <button
                 key={`day-${day}`}
                 onClick={() => toggleDay(day, i)}
-                className={`p-2 border rounded ${
+                className={`p-1 md:p-2 border rounded text-xs md:text-base ${
                   isSelected ? "bg-green-500 text-white" : 
                   isWeekend ? "bg-red-50" : "bg-white"
                 }`}
@@ -530,15 +637,15 @@ const App = () => {
               </button>
             );
           } else {
-            row.push(<div key={`empty-${i}-${week}`} className="p-2"></div>);
+            row.push(<div key={`empty-${i}-${week}`} className="p-1 md:p-2"></div>);
           }
         });
         
         // Add weekly total
         row.push(
           <div key={`week-${week}-total`} className="flex items-center justify-center">
-            <div className="p-2 bg-blue-100 border rounded w-14 text-center">
-              <span className="font-bold text-blue-800 text-lg">{weeklyAttendance[weekNumber] || 0}</span>
+            <div className="p-1 md:p-2 bg-blue-100 border rounded w-8 md:w-14 text-center">
+              <span className="font-bold text-blue-800 text-sm md:text-lg">{weeklyAttendance[weekNumber] || 0}</span>
             </div>
           </div>
         );
@@ -555,7 +662,7 @@ const App = () => {
     };
     
     return (
-      <div className="p-4 max-w-6xl mx-auto">
+      <div className="p-4 max-w-full md:max-w-6xl mx-auto">
         <h2 className="text-xl font-bold mb-4">Attendance Calendar</h2>
         
         <div className="mb-4">
@@ -563,7 +670,7 @@ const App = () => {
           <select
             value={selectedChild}
             onChange={handleChildChange}
-            className="border p-2 rounded"
+            className="border p-2 rounded w-full md:w-auto"
           >
             <option value="">-- Choose a child --</option>
             <option value="Anna">Anna</option>
@@ -592,7 +699,7 @@ const App = () => {
             </button>
           </div>
           
-          <div>{renderCalendar()}</div>
+          <div className="overflow-x-auto">{renderCalendar()}</div>
         </div>
         
         {weekendWarning && (
@@ -655,7 +762,9 @@ const App = () => {
   return (
     <div className="min-h-screen bg-gray-50">
       <Navbar />
-      {renderPage()}
+      <div className="container mx-auto">
+        {renderPage()}
+      </div>
     </div>
   );
 };
