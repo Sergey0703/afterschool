@@ -286,6 +286,10 @@ const App = () => {
       </div>
     </div>
   );
+
+  const Priorities = () => (
+    <div className="p-4 md:p-6 max-w-5xl mx-auto"></div>
+  );
   
   // Curriculum component with weekly schedule
   const Curriculum = () => (
@@ -1008,7 +1012,7 @@ const App = () => {
       case "home":
         return <Home />;
       case "priorities":
-        return <Page title="Our Priorities" />;
+        return <Priorities />;
       case "curriculum":
         return <Curriculum />;
       case "attendance-calendar":
@@ -1020,7 +1024,7 @@ const App = () => {
       case "regulations":
         return <Regulations />;
       default:
-        return <Home/>;
+        return <Home />;
     }
   };
 
