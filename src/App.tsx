@@ -996,11 +996,36 @@ const App = () => {
         )}
       </div>
     );
-  };
+  };// Priorities component
+  const Priorities = () => (
+    <div className="p-4 md:p-6 max-w-4xl mx-auto w-full">
+      <h2 className="text-xl font-bold mb-4">Our Priorities</h2>
+      <div className="bg-white bg-opacity-50 p-6 rounded-lg shadow-md">
+        <div className="flex flex-col md:flex-row items-center justify-center gap-4 mb-6">
+          <div className="text-center p-4 rounded-lg bg-blue-100 shadow-sm w-full md:w-1/3">
+            <div className="text-3xl mb-2">👨‍👩‍👧‍👦</div>
+            <h3 className="text-lg font-semibold mb-2">Safe Environment</h3>
+            <p className="text-sm">Creating a secure and nurturing space where each child feels comfortable and cared for.</p>
+          </div>
+          
+          <div className="text-center p-4 rounded-lg bg-green-100 shadow-sm w-full md:w-1/3">
+            <div className="text-3xl mb-2">🧠</div>
+            <h3 className="text-lg font-semibold mb-2">Development</h3>
+            <p className="text-sm">Supporting academic growth and fostering creativity through diverse activities.</p>
+          </div>
+          
+          <div className="text-center p-4 rounded-lg bg-purple-100 shadow-sm w-full md:w-1/3">
+            <div className="text-3xl mb-2">🤝</div>
+            <h3 className="text-lg font-semibold mb-2">Community</h3>
+            <p className="text-sm">Building social skills and teaching respect for diversity and teamwork.</p>
+          </div>
+        </div>
+        
+        <p className="text-center text-gray-500 italic">Detailed information about our educational approach and priorities is coming soon!</p>
+      </div>
+    </div>
+  );
 
-  const Priorities = () => (    
-     <div className="p-4 md:p-6 max-w-5xl mx-auto"></div>  
-     );
   // Router - render the appropriate component based on currentPage
   const renderPage = () => {
     switch(currentPage) {
@@ -1024,7 +1049,7 @@ const App = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-indigo-50">
+    <div className="min-h-screen bg-gradient-to-br from-sky-100 via-indigo-50 to-purple-50">
       <Navbar />
       <div className="container mx-auto">
         {renderPage()}
