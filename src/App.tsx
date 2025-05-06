@@ -5,9 +5,9 @@ import logo from "./assets/brainy-bunch-logo.png";
 type PageType = "home" | "priorities" | "curriculum" | "attendance-calendar" | "pricing" | "regulations" | "feedback";
 
 // Интерфейсы для типизации компонентов
-interface PageProps {
-  title: string;
-}
+//interface PageProps {
+//  title: string;
+//}
 
 interface WeeklyAttendance {
   [key: number]: number;
