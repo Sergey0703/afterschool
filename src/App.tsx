@@ -31,100 +31,98 @@ const App = () => {
     setMobileMenuOpen(!mobileMenuOpen);
   };
 
-
-// Navbar component with all improvements
-const Navbar = () => (
-  <nav className="bg-blue-600 text-white shadow-md">
-    {/* Desktop navigation */}
-    <div className="hidden md:flex flex-col p-4">
-      {/* Top part with logo and navigation buttons */}
-      <div className="flex justify-between items-center w-full">
-        <div className="flex items-center cursor-pointer" onClick={() => navigateTo("home")}>
-          <img 
-            src={logo} 
-            alt="Brainy Bunch Logo" 
-            className="logo-navbar -my-2" 
-          />
-          <h1 className="text-xl font-bold leading-tight">
-            Brainy Bunch<br />
-            After School Service
-          </h1>
+  // Navbar component with logo
+  const Navbar = () => (
+    <nav className="bg-blue-600 text-white shadow-md">
+      {/* Desktop navigation */}
+      <div className="hidden md:flex flex-col p-4">
+        {/* Top part with logo and navigation buttons */}
+        <div className="flex justify-between items-center w-full">
+          <div className="flex items-center cursor-pointer" onClick={() => navigateTo("home")}>
+            <img 
+              src={logo} 
+              alt="Brainy Bunch Logo" 
+              className="logo-navbar -my-2" 
+            />
+            <h1 className="text-xl font-bold leading-tight">
+              Brainy Bunch<br />
+              After School Service
+            </h1>
+          </div>
+          <ul className="flex gap-2 text-sm items-center ml-12">
+            <li>
+              <button
+                onClick={() => navigateTo("home")}
+                className={`min-w-[120px] h-12 px-4 rounded-lg font-semibold transition duration-200 flex items-center justify-center border-2 border-white ${currentPage === 'home' ? 'bg-white text-blue-700 shadow' : 'bg-transparent text-white hover:bg-blue-700 hover:text-white'}`}
+              >
+                Home
+              </button>
+            </li>
+            <li>
+              <button
+                onClick={() => navigateTo("priorities")}
+                className={`min-w-[120px] h-12 px-4 rounded-lg font-semibold transition duration-200 flex items-center justify-center border-2 border-white ${currentPage === 'priorities' ? 'bg-white text-blue-700 shadow' : 'bg-transparent text-white hover:bg-blue-700 hover:text-white'}`}
+              >
+                Our Priorities
+              </button>
+            </li>
+            <li>
+              <button
+                onClick={() => navigateTo("curriculum")}
+                className={`min-w-[120px] h-12 px-4 rounded-lg font-semibold transition duration-200 flex items-center justify-center border-2 border-white ${currentPage === 'curriculum' ? 'bg-white text-blue-700 shadow' : 'bg-transparent text-white hover:bg-blue-700 hover:text-white'}`}
+              >
+                Curriculum
+              </button>
+            </li>
+            <li>
+              <button
+                onClick={() => navigateTo("attendance-calendar")}
+                className={`min-w-[120px] h-12 px-4 rounded-lg font-semibold transition duration-200 flex items-center justify-center border-2 border-white ${currentPage === 'attendance-calendar' ? 'bg-white text-blue-700 shadow' : 'bg-transparent text-white hover:bg-blue-700 hover:text-white'}`}
+              >
+                Attendance Calendar
+              </button>
+            </li>
+            <li>
+              <button
+                onClick={() => navigateTo("pricing")}
+                className={`min-w-[120px] h-12 px-4 rounded-lg font-semibold transition duration-200 flex items-center justify-center border-2 border-white ${currentPage === 'pricing' ? 'bg-white text-blue-700 shadow' : 'bg-transparent text-white hover:bg-blue-700 hover:text-white'}`}
+              >
+                Pricing
+              </button>
+            </li>
+            <li>
+              <button
+                onClick={() => navigateTo("regulations")}
+                className={`min-w-[120px] h-12 px-4 rounded-lg font-semibold transition duration-200 flex items-center justify-center border-2 border-white ${currentPage === 'regulations' ? 'bg-white text-blue-700 shadow' : 'bg-transparent text-white hover:bg-blue-700 hover:text-white'}`}
+              >
+                Regulations
+              </button>
+            </li>
+            <li>
+              <button
+                onClick={() => navigateTo("feedback")}
+                className={`min-w-[120px] h-12 px-4 rounded-lg font-semibold transition duration-200 flex items-center justify-center border-2 border-white ${currentPage === 'feedback' ? 'bg-white text-blue-700 shadow' : 'bg-transparent text-white hover:bg-blue-700 hover:text-white'}`}
+              >
+                Contacts
+              </button>
+            </li>
+          </ul>
         </div>
-        <ul className="flex gap-2 text-sm items-center ml-12">
-          <li>
-            <button
-              onClick={() => navigateTo("home")}
-              className={`min-w-[120px] h-12 px-4 rounded-lg font-semibold transition duration-200 flex items-center justify-center border-2 border-white ${currentPage === 'home' ? 'bg-white text-blue-700 shadow' : 'bg-transparent text-white hover:bg-blue-700 hover:text-white'}`}
-            >
-              Home
-            </button>
-          </li>
-          <li>
-            <button
-              onClick={() => navigateTo("priorities")}
-              className={`min-w-[120px] h-12 px-4 rounded-lg font-semibold transition duration-200 flex items-center justify-center border-2 border-white ${currentPage === 'priorities' ? 'bg-white text-blue-700 shadow' : 'bg-transparent text-white hover:bg-blue-700 hover:text-white'}`}
-            >
-              Our Priorities
-            </button>
-          </li>
-          <li>
-            <button
-              onClick={() => navigateTo("curriculum")}
-              className={`min-w-[120px] h-12 px-4 rounded-lg font-semibold transition duration-200 flex items-center justify-center border-2 border-white ${currentPage === 'curriculum' ? 'bg-white text-blue-700 shadow' : 'bg-transparent text-white hover:bg-blue-700 hover:text-white'}`}
-            >
-              Curriculum
-            </button>
-          </li>
-          <li>
-            <button
-              onClick={() => navigateTo("attendance-calendar")}
-              className={`min-w-[120px] h-12 px-4 rounded-lg font-semibold transition duration-200 flex items-center justify-center border-2 border-white ${currentPage === 'attendance-calendar' ? 'bg-white text-blue-700 shadow' : 'bg-transparent text-white hover:bg-blue-700 hover:text-white'}`}
-            >
-              Attendance Calendar
-            </button>
-          </li>
-          <li>
-            <button
-              onClick={() => navigateTo("pricing")}
-              className={`min-w-[120px] h-12 px-4 rounded-lg font-semibold transition duration-200 flex items-center justify-center border-2 border-white ${currentPage === 'pricing' ? 'bg-white text-blue-700 shadow' : 'bg-transparent text-white hover:bg-blue-700 hover:text-white'}`}
-            >
-              Pricing
-            </button>
-          </li>
-          <li>
-            <button
-              onClick={() => navigateTo("regulations")}
-              className={`min-w-[120px] h-12 px-4 rounded-lg font-semibold transition duration-200 flex items-center justify-center border-2 border-white ${currentPage === 'regulations' ? 'bg-white text-blue-700 shadow' : 'bg-transparent text-white hover:bg-blue-700 hover:text-white'}`}
-            >
-              Regulations
-            </button>
-          </li>
-          <li>
-            <button
-              onClick={() => navigateTo("feedback")}
-              className={`min-w-[120px] h-12 px-4 rounded-lg font-semibold transition duration-200 flex items-center justify-center border-2 border-white ${currentPage === 'feedback' ? 'bg-white text-blue-700 shadow' : 'bg-transparent text-white hover:bg-blue-700 hover:text-white'}`}
-            >
-              Contacts
-            </button>
-          </li>
-        </ul>
+        
+        {/* Motto below navigation */}
+        <div className="text-center w-full -mt-3">
+          <p className="text-white text-sm font-medium italic tracking-wide"
+             style={{ fontFamily: "Arial, sans-serif", letterSpacing: "1px" }}>
+            <span className="mr-1">👍</span> Learn, laugh, grow together <span className="ml-1">👍</span>
+          </p>
+        </div>
       </div>
       
-      {/* Motto below navigation */}
-      <div className="text-center w-full -mt-3">
-        <p className="text-white text-sm font-medium italic tracking-wide"
-           style={{ fontFamily: "Arial, sans-serif", letterSpacing: "1px" }}>
-          <span className="mr-1">👍</span> Learn, laugh, grow together <span className="ml-1">👍</span>
-        </p>
-      </div>
-    </div>
-    
-    {/* Mobile navigation header */}
-    <div className="md:hidden flex flex-col">
-      <div className="flex p-4">
-        <div className="flex items-start">
+      {/* Mobile navigation header */}
+      <div className="md:hidden flex flex-col">
+        <div className="flex justify-between items-start p-4">
           <div 
-            className="flex items-center cursor-pointer" 
+            className="flex items-start cursor-pointer" 
             onClick={() => navigateTo("home")}
           >
             <img 
@@ -143,95 +141,94 @@ const Navbar = () => (
               </p>
             </div>
           </div>
-        </div>
 
-        <button 
-          onClick={toggleMobileMenu}
-          className="p-2 bg-white bg-opacity-20 rounded-md ml-auto"
-          aria-label="Toggle navigation menu"
-        >
-          {mobileMenuOpen ? (
-            <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-            </svg>
-          ) : (
-            <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
-            </svg>
-          )}
-        </button>
-      </div>
-      
-      {/* Mobile navigation menu */}
-      {mobileMenuOpen && (
-        <div className="pb-2 px-4">
-          <ul className="flex flex-col gap-2">
-            <li>
-              <button
-                onClick={() => navigateTo("home")}
-                className={`w-full py-2 px-4 rounded-lg font-semibold transition duration-200 flex items-center justify-center border border-white ${currentPage === 'home' ? 'bg-white text-blue-700 shadow' : 'bg-transparent text-white'}`}
-              >
-                Home
-              </button>
-            </li>
-            <li>
-              <button
-                onClick={() => navigateTo("priorities")}
-                className={`w-full py-2 px-4 rounded-lg font-semibold transition duration-200 flex items-center justify-center border border-white ${currentPage === 'priorities' ? 'bg-white text-blue-700 shadow' : 'bg-transparent text-white'}`}
-              >
-                Our Priorities
-              </button>
-            </li>
-            <li>
-              <button
-                onClick={() => navigateTo("curriculum")}
-                className={`w-full py-2 px-4 rounded-lg font-semibold transition duration-200 flex items-center justify-center border border-white ${currentPage === 'curriculum' ? 'bg-white text-blue-700 shadow' : 'bg-transparent text-white'}`}
-              >
-                Curriculum
-              </button>
-            </li>
-            <li>
-              <button
-                onClick={() => navigateTo("attendance-calendar")}
-                className={`w-full py-2 px-4 rounded-lg font-semibold transition duration-200 flex items-center justify-center border border-white ${currentPage === 'attendance-calendar' ? 'bg-white text-blue-700 shadow' : 'bg-transparent text-white'}`}
-              >
-                Attendance Calendar
-              </button>
-            </li>
-            <li>
-              <button
-                onClick={() => navigateTo("pricing")}
-                className={`w-full py-2 px-4 rounded-lg font-semibold transition duration-200 flex items-center justify-center border border-white ${currentPage === 'pricing' ? 'bg-white text-blue-700 shadow' : 'bg-transparent text-white'}`}
-              >
-                Pricing
-              </button>
-            </li>
-            <li>
-              <button
-                onClick={() => navigateTo("regulations")}
-                className={`w-full py-2 px-4 rounded-lg font-semibold transition duration-200 flex items-center justify-center border border-white ${currentPage === 'regulations' ? 'bg-white text-blue-700 shadow' : 'bg-transparent text-white'}`}
-              >
-                Regulations
-              </button>
-            </li>
-            <li>
-              <button
-                onClick={() => navigateTo("feedback")}
-                className={`w-full py-2 px-4 rounded-lg font-semibold transition duration-200 flex items-center justify-center border border-white ${currentPage === 'feedback' ? 'bg-white text-blue-700 shadow' : 'bg-transparent text-white'}`}
-              >
-                Contacts
-              </button>
-            </li>
-          </ul>
+          <button 
+            onClick={toggleMobileMenu}
+            className="p-2 bg-white bg-opacity-20 rounded-md"
+            aria-label="Toggle navigation menu"
+          >
+            {mobileMenuOpen ? (
+              <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+              </svg>
+            ) : (
+              <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+              </svg>
+            )}
+          </button>
         </div>
-      )}
-    </div>
-  </nav>
-);
+        
+        {/* Mobile navigation menu */}
+        {mobileMenuOpen && (
+          <div className="px-4 pb-4">
+            <ul className="flex flex-col gap-2">
+              <li>
+                <button
+                  onClick={() => navigateTo("home")}
+                  className={`w-full py-2 px-4 rounded-lg font-semibold transition duration-200 flex items-center justify-center border border-white ${currentPage === 'home' ? 'bg-white text-blue-700 shadow' : 'bg-transparent text-white'}`}
+                >
+                  Home
+                </button>
+              </li>
+              <li>
+                <button
+                  onClick={() => navigateTo("priorities")}
+                  className={`w-full py-2 px-4 rounded-lg font-semibold transition duration-200 flex items-center justify-center border border-white ${currentPage === 'priorities' ? 'bg-white text-blue-700 shadow' : 'bg-transparent text-white'}`}
+                >
+                  Our Priorities
+                </button>
+              </li>
+              <li>
+                <button
+                  onClick={() => navigateTo("curriculum")}
+                  className={`w-full py-2 px-4 rounded-lg font-semibold transition duration-200 flex items-center justify-center border border-white ${currentPage === 'curriculum' ? 'bg-white text-blue-700 shadow' : 'bg-transparent text-white'}`}
+                >
+                  Curriculum
+                </button>
+              </li>
+              <li>
+                <button
+                  onClick={() => navigateTo("attendance-calendar")}
+                  className={`w-full py-2 px-4 rounded-lg font-semibold transition duration-200 flex items-center justify-center border border-white ${currentPage === 'attendance-calendar' ? 'bg-white text-blue-700 shadow' : 'bg-transparent text-white'}`}
+                >
+                  Attendance Calendar
+                </button>
+              </li>
+              <li>
+                <button
+                  onClick={() => navigateTo("pricing")}
+                  className={`w-full py-2 px-4 rounded-lg font-semibold transition duration-200 flex items-center justify-center border border-white ${currentPage === 'pricing' ? 'bg-white text-blue-700 shadow' : 'bg-transparent text-white'}`}
+                >
+                  Pricing
+                </button>
+              </li>
+              <li>
+                <button
+                  onClick={() => navigateTo("regulations")}
+                  className={`w-full py-2 px-4 rounded-lg font-semibold transition duration-200 flex items-center justify-center border border-white ${currentPage === 'regulations' ? 'bg-white text-blue-700 shadow' : 'bg-transparent text-white'}`}
+                >
+                  Regulations
+                </button>
+              </li>
+              <li>
+                <button
+                  onClick={() => navigateTo("feedback")}
+                  className={`w-full py-2 px-4 rounded-lg font-semibold transition duration-200 flex items-center justify-center border border-white ${currentPage === 'feedback' ? 'bg-white text-blue-700 shadow' : 'bg-transparent text-white'}`}
+                >
+                  Contacts
+                </button>
+              </li>
+            </ul>
+          </div>
+        )}
+      </div>
+    </nav>
+  );
 
   // Priorities component
   const Priorities = () => (
-    <div className="p-4 md:p-6 max-w-4xl mx-auto w-full">
+    <div className="py-6">
       <h2 className="text-xl font-bold mb-4">Our Priorities</h2>
       <div className="bg-white bg-opacity-50 p-6 rounded-lg shadow-md">
         <div className="flex flex-col md:flex-row items-center justify-center gap-4 mb-6">
@@ -261,7 +258,7 @@ const Navbar = () => (
 
   // Home page component with consistent width
   const Home = () => (
-    <div className="p-4 md:p-6 max-w-4xl mx-auto w-full">
+    <div className="py-6">
       <div className="mb-6 text-center">
         <img 
           src="/afterschool-art.jpg" 
@@ -340,7 +337,7 @@ const Navbar = () => (
   
   // Curriculum component with weekly schedule
   const Curriculum = () => (
-    <div className="p-4 md:p-6 max-w-4xl mx-auto w-full">
+    <div className="py-6">
       <h2 className="text-xl font-bold mb-4">Curriculum</h2>
       
       <div className="mb-6">
@@ -490,7 +487,7 @@ const Navbar = () => (
 
   // Regulations component with resources list
   const Regulations = () => (
-    <div className="p-4 md:p-6 max-w-4xl mx-auto w-full">
+    <div className="py-6">
       <h2 className="text-xl font-bold mb-4">Regulations</h2>
       <div className="mb-4">
         <h3 className="text-lg font-medium mb-2">Useful Resources for Setting Up an After School Service in Ireland</h3>
@@ -517,6 +514,7 @@ const Navbar = () => (
             <br />A useful resource providing clear, accessible summaries of the regulations for school-age childcare in Ireland, including Tusla registration.
             <br /><a href="https://www.citizensinformation.ie/en/education/pre-school-education-and-childcare/regulation-of-school-age-childcare/" target="_blank" className="text-blue-600 hover:underline break-words">www.citizensinformation.ie/en/education/pre-school-education-and-childcare/regulation-of-school-age-childcare/</a>
           </div>
+          <div></div>
           <div>
             <strong>National Quality Guidelines for School Age Childcare Services (2020):</strong>
             <br />A key document outlining a framework for providing high-quality services that go beyond minimum regulatory requirements. Essential reading for program development.
@@ -563,7 +561,7 @@ const Navbar = () => (
     };
 
     return (
-      <div className="p-4 md:p-6 max-w-4xl mx-auto w-full">
+      <div className="py-6">
         <h2 className="text-xl font-bold mb-4">Contacts</h2>
         
         {/* QR Code image */}
@@ -658,7 +656,7 @@ const Navbar = () => (
 
   // Updated Pricing component with new hours and price
   const Pricing = () => (
-    <div className="p-4 md:p-6 max-w-4xl mx-auto w-full">
+    <div className="py-6">
       <h2 className="text-xl font-bold mb-4">Pricing and Services</h2>
       <p className="mb-4">Below are the standard services and corresponding rates:</p>
       <div className="overflow-x-auto">
@@ -977,7 +975,7 @@ const Navbar = () => (
     };
     
     return (
-      <div className="p-4 max-w-4xl mx-auto w-full">
+      <div className="py-6">
         <h2 className="text-xl font-bold mb-4">Attendance Calendar</h2>
         
         <div className="mb-4">
@@ -1078,7 +1076,8 @@ const Navbar = () => (
   return (
     <div className="min-h-screen bg-gradient-to-br from-sky-100 via-indigo-50 to-purple-50">
       <Navbar />
-      <div className="container mx-auto">
+      {/* Унифицированный контейнер для всех страниц с постоянной шириной */}
+      <div className="container mx-auto px-4 max-w-4xl">
         {renderPage()}
       </div>
     </div>
