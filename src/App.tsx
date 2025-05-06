@@ -31,11 +31,14 @@ const App = () => {
     setMobileMenuOpen(!mobileMenuOpen);
   };
 
-  // Navbar component with logo
-  const Navbar = () => (
-    <nav className="bg-blue-600 text-white shadow-md">
-      {/* Desktop navigation */}
-      <div className="hidden md:flex justify-between items-center p-4">
+
+// Navbar component with motto very close to buttons and emojis on both sides
+const Navbar = () => (
+  <nav className="bg-blue-600 text-white shadow-md">
+    {/* Desktop navigation */}
+    <div className="hidden md:flex flex-col p-4">
+      {/* Top part with logo and navigation buttons */}
+      <div className="flex justify-between items-center w-full">
         <div className="flex items-center">
           <img 
             src={logo} 
@@ -107,8 +110,18 @@ const App = () => {
         </ul>
       </div>
       
-      {/* Mobile navigation header */}
-      <div className="md:hidden flex justify-between items-center p-4 bg-blue-600">
+      {/* Motto below navigation - максимально приближен к кнопкам */}
+      <div className="text-center w-full -mt-3">
+        <p className="text-white text-sm font-medium italic tracking-wide"
+           style={{ fontFamily: "Arial, sans-serif", letterSpacing: "1px" }}>
+          <span className="mr-1">👍</span> Learn, laugh, grow together <span className="ml-1">👍</span>
+        </p>
+      </div>
+    </div>
+    
+    {/* Mobile navigation header */}
+    <div className="md:hidden flex flex-col">
+      <div className="flex justify-between items-center p-4">
         <div className="flex items-center">
           <img 
             src={logo} 
@@ -125,12 +138,10 @@ const App = () => {
           aria-label="Toggle navigation menu"
         >
           {mobileMenuOpen ? (
-            // X icon for close
             <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
             </svg>
           ) : (
-            // Hamburger icon for menu
             <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
             </svg>
@@ -140,7 +151,7 @@ const App = () => {
       
       {/* Mobile navigation menu */}
       {mobileMenuOpen && (
-        <div className="md:hidden pb-4 px-4 bg-blue-600">
+        <div className="pb-2 px-4">
           <ul className="flex flex-col gap-2">
             <li>
               <button
@@ -195,13 +206,52 @@ const App = () => {
                 onClick={() => navigateTo("feedback")}
                 className={`w-full py-2 px-4 rounded-lg font-semibold transition duration-200 flex items-center justify-center border border-white ${currentPage === 'feedback' ? 'bg-white text-blue-700 shadow' : 'bg-transparent text-white'}`}
               >
-                Feedback
+                Contacts
               </button>
             </li>
           </ul>
+          
+          {/* Motto for mobile view - также максимально приближен к кнопкам */}
+          <div className="text-center w-full -mt-2">
+            <p className="text-white text-sm font-medium italic tracking-wide"
+               style={{ fontFamily: "Arial, sans-serif", letterSpacing: "1px" }}>
+              <span className="mr-1">👍</span> Learn, laugh, grow together <span className="ml-1">👍</span>
+            </p>
+          </div>
         </div>
       )}
-    </nav>
+    </div>
+  </nav>
+);
+
+  // Priorities component
+  const Priorities = () => (
+    <div className="p-4 md:p-6 max-w-4xl mx-auto w-full">
+      <h2 className="text-xl font-bold mb-4">Our Priorities</h2>
+      <div className="bg-white bg-opacity-50 p-6 rounded-lg shadow-md">
+        <div className="flex flex-col md:flex-row items-center justify-center gap-4 mb-6">
+          <div className="text-center p-4 rounded-lg bg-blue-100 shadow-sm w-full md:w-1/3">
+            <div className="text-3xl mb-2">👨‍👩‍👧‍👦</div>
+            <h3 className="text-lg font-semibold mb-2">Safe Environment</h3>
+            <p className="text-sm">Creating a secure and nurturing space where each child feels comfortable and cared for.</p>
+          </div>
+          
+          <div className="text-center p-4 rounded-lg bg-green-100 shadow-sm w-full md:w-1/3">
+            <div className="text-3xl mb-2">🧠</div>
+            <h3 className="text-lg font-semibold mb-2">Development</h3>
+            <p className="text-sm">Supporting academic growth and fostering creativity through diverse activities.</p>
+          </div>
+          
+          <div className="text-center p-4 rounded-lg bg-purple-100 shadow-sm w-full md:w-1/3">
+            <div className="text-3xl mb-2">🤝</div>
+            <h3 className="text-lg font-semibold mb-2">Community</h3>
+            <p className="text-sm">Building social skills and teaching respect for diversity and teamwork.</p>
+          </div>
+        </div>
+        
+        <p className="text-center text-gray-500 italic">Detailed information about our educational approach and priorities is coming soon!</p>
+      </div>
+    </div>
   );
 
   // Home page component with consistent width
@@ -435,7 +485,7 @@ const App = () => {
 
   // Regulations component with resources list
   const Regulations = () => (
-    <div className="p-4 md:p-6 max-w-4xl mx-auto">
+    <div className="p-4 md:p-6 max-w-4xl mx-auto w-full">
       <h2 className="text-xl font-bold mb-4">Regulations</h2>
       <div className="mb-4">
         <h3 className="text-lg font-medium mb-2">Useful Resources for Setting Up an After School Service in Ireland</h3>
@@ -922,7 +972,7 @@ const App = () => {
     };
     
     return (
-      <div className="p-4 max-w-full md:max-w-6xl mx-auto">
+      <div className="p-4 max-w-4xl mx-auto w-full">
         <h2 className="text-xl font-bold mb-4">Attendance Calendar</h2>
         
         <div className="mb-4">
@@ -996,35 +1046,7 @@ const App = () => {
         )}
       </div>
     );
-  };// Priorities component
-  const Priorities = () => (
-    <div className="p-4 md:p-6 max-w-4xl mx-auto w-full">
-      <h2 className="text-xl font-bold mb-4">Our Priorities</h2>
-      <div className="bg-white bg-opacity-50 p-6 rounded-lg shadow-md">
-        <div className="flex flex-col md:flex-row items-center justify-center gap-4 mb-6">
-          <div className="text-center p-4 rounded-lg bg-blue-100 shadow-sm w-full md:w-1/3">
-            <div className="text-3xl mb-2">👨‍👩‍👧‍👦</div>
-            <h3 className="text-lg font-semibold mb-2">Safe Environment</h3>
-            <p className="text-sm">Creating a secure and nurturing space where each child feels comfortable and cared for.</p>
-          </div>
-          
-          <div className="text-center p-4 rounded-lg bg-green-100 shadow-sm w-full md:w-1/3">
-            <div className="text-3xl mb-2">🧠</div>
-            <h3 className="text-lg font-semibold mb-2">Development</h3>
-            <p className="text-sm">Supporting academic growth and fostering creativity through diverse activities.</p>
-          </div>
-          
-          <div className="text-center p-4 rounded-lg bg-purple-100 shadow-sm w-full md:w-1/3">
-            <div className="text-3xl mb-2">🤝</div>
-            <h3 className="text-lg font-semibold mb-2">Community</h3>
-            <p className="text-sm">Building social skills and teaching respect for diversity and teamwork.</p>
-          </div>
-        </div>
-        
-        <p className="text-center text-gray-500 italic">Detailed information about our educational approach and priorities is coming soon!</p>
-      </div>
-    </div>
-  );
+  };
 
   // Router - render the appropriate component based on currentPage
   const renderPage = () => {
