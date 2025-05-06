@@ -208,11 +208,82 @@ const App = () => {
     </nav>
   );
 
-  // Basic page component for placeholder pages
-  const Page = ({ title }: PageProps) => (
-    <div className="p-4 md:p-6 max-w-3xl mx-auto">
-      <h2 className="text-xl font-bold mb-4">{title}</h2>
-      <p>Page content for "{title}" will be added soon.</p>
+  // Home page component
+  const Home = () => (
+    <div className="p-4 md:p-6 max-w-4xl mx-auto">
+      <div className="mb-6 text-center">
+        <img 
+          src="/afterschool-art.jpg" 
+          alt="Students engaged in creative art activities" 
+          className="rounded-lg shadow-lg max-w-full h-auto mx-auto mb-4"
+        />
+      </div>
+      
+      <h2 className="text-xl font-bold mb-4">Welcome to <span className="text-blue-600">Brainy Bunch</span> – After-School Group for Primary School Children!</h2>
+      
+      <p className="mb-4">
+        We are delighted to welcome you to the website of <strong>Brainy Bunch</strong> – a creative, safe, and caring after-school group for younger primary school children, based at <strong>Two Mile Community National School</strong>.
+      </p>
+      
+      <p className="mb-4">
+        <strong>Brainy Bunch is fully registered in strict accordance with the regulations of Tusla – the Child and Family Agency of Ireland</strong> (www.tusla.ie), ensuring the highest standards of care, safety, and compliance.
+      </p>
+      
+      <p className="mb-6">
+        Our program is thoughtfully designed to support each child in a warm and engaging environment. We offer enriching activities and reliable supervision every weekday from <strong>2:30 PM to 5:30 PM</strong>.
+      </p>
+      
+      <h3 className="text-lg font-semibold mb-3">What <span className="text-blue-600">Brainy Bunch</span> Offers:</h3>
+      
+      <ul className="space-y-2 mb-6">
+        <li className="flex items-start">
+          <span className="mr-2 text-xl">👩‍🏫</span>
+          <span><strong>Reliable Childcare</strong> – A small group of up to 12 children to ensure individual attention and care.</span>
+        </li>
+        <li className="flex items-start">
+          <span className="mr-2 text-xl">🎨</span>
+          <span><strong>Creative Activities</strong> – Arts and crafts, drawing, building, and other fun tasks to stimulate imagination and fine motor skills.</span>
+        </li>
+        <li className="flex items-start">
+          <span className="mr-2 text-xl">🍎</span>
+          <span><strong>Healthy Snack</strong> – A light and nutritious snack every day, including fruit, yogurt, juice, and biscuits.</span>
+        </li>
+        <li className="flex items-start">
+          <span className="mr-2 text-xl">📚</span>
+          <span><strong>Quiet Time for Homework or Reading</strong> – A calm setting where children can read or do their schoolwork.</span>
+        </li>
+        <li className="flex items-start">
+          <span className="mr-2 text-xl">🏃‍♂️</span>
+          <span><strong>Outdoor Play</strong> – Energetic games in the school yard or designated safe areas when weather permits.</span>
+        </li>
+        <li className="flex items-start">
+          <span className="mr-2 text-xl">📱</span>
+          <span><strong>Open Communication with Parents</strong> – Regular updates via our website, a dedicated WhatsApp group, and an online contact form. Weekly activity summaries and monthly schedules are available to all parents.</span>
+        </li>
+      </ul>
+      
+      <div className="bg-blue-50 border-l-4 border-blue-500 p-4 mb-6">
+        <h3 className="text-lg font-semibold mb-2">Participation in the National Childcare Scheme (NCS)</h3>
+        <p>
+          We are proud to be part of the <strong>National Childcare Scheme (NCS)</strong>, a government support program that helps families with childcare costs. This means you may be eligible for financial support toward the cost of your child's place at <strong>Brainy Bunch</strong>. You can learn more and apply on the official NCS website or by contacting us directly for guidance.
+        </p>
+      </div>
+      
+      <div className="bg-yellow-50 border border-yellow-200 rounded-lg p-5 mb-6 text-center">
+        <h3 className="text-lg font-semibold mb-3">Join Us!</h3>
+        <p className="mb-4">
+          If you're looking for a safe, meaningful, and enjoyable place where your child can learn, play, and relax after school, <strong>Brainy Bunch</strong> is the perfect choice. We work to ensure every afternoon is filled with creativity, care, and connection.
+        </p>
+        <p className="font-medium">
+          📧 <strong>Contact us today</strong> to register or to learn more!
+        </p>
+        <button 
+          onClick={() => window.location.href = '#/feedback'}
+          className="mt-4 bg-blue-600 text-white py-2 px-6 rounded-lg hover:bg-blue-700 transition duration-200"
+        >
+          Contact Us
+        </button>
+      </div>
     </div>
   );
   
@@ -235,7 +306,7 @@ const App = () => {
             <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
             </svg>
-            Download curriculum for September
+            Учебный план на сентябрь
           </a>
         </div>
       </div>
@@ -935,7 +1006,7 @@ const App = () => {
   const renderPage = () => {
     switch(currentPage) {
       case "home":
-        return <Page title="Home" />;
+        return <Home />;
       case "priorities":
         return <Page title="Our Priorities" />;
       case "curriculum":
@@ -949,7 +1020,7 @@ const App = () => {
       case "regulations":
         return <Regulations />;
       default:
-        return <Page title="Home" />;
+        return <Home/>;
     }
   };
 
