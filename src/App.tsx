@@ -5,10 +5,6 @@ import logo from "./assets/brainy-bunch-logo.png";
 type PageType = "home" | "priorities" | "curriculum" | "attendance-calendar" | "pricing" | "regulations" | "feedback";
 
 // Интерфейсы для типизации компонентов
-//interface PageProps {
-//  title: string;
-//}
-
 interface WeeklyAttendance {
   [key: number]: number;
 }
@@ -208,9 +204,9 @@ const App = () => {
     </nav>
   );
 
-  // Home page component
+  // Home page component with consistent width
   const Home = () => (
-    <div className="p-4 md:p-6 max-w-4xl mx-auto">
+    <div className="p-4 md:p-6 max-w-4xl mx-auto w-full">
       <div className="mb-6 text-center">
         <img 
           src="/afterschool-art.jpg" 
@@ -286,14 +282,10 @@ const App = () => {
       </div>
     </div>
   );
-
-  const Priorities = () => (
-    <div className="p-4 md:p-6 max-w-5xl mx-auto"></div>
-  );
   
   // Curriculum component with weekly schedule
   const Curriculum = () => (
-    <div className="p-4 md:p-6 max-w-5xl mx-auto">
+    <div className="p-4 md:p-6 max-w-4xl mx-auto w-full">
       <h2 className="text-xl font-bold mb-4">Curriculum</h2>
       
       <div className="mb-6">
@@ -516,7 +508,7 @@ const App = () => {
     };
 
     return (
-      <div className="p-4 md:p-6 max-w-3xl mx-auto">
+      <div className="p-4 md:p-6 max-w-4xl mx-auto w-full">
         <h2 className="text-xl font-bold mb-4">Contacts</h2>
         
         {/* QR Code image */}
@@ -611,7 +603,7 @@ const App = () => {
 
   // Updated Pricing component with new hours and price
   const Pricing = () => (
-    <div className="p-4 md:p-6 max-w-3xl mx-auto">
+    <div className="p-4 md:p-6 max-w-4xl mx-auto w-full">
       <h2 className="text-xl font-bold mb-4">Pricing and Services</h2>
       <p className="mb-4">Below are the standard services and corresponding rates:</p>
       <div className="overflow-x-auto">
@@ -1006,6 +998,9 @@ const App = () => {
     );
   };
 
+  const Priorities = () => (    
+     <div className="p-4 md:p-6 max-w-5xl mx-auto"></div>  
+     );
   // Router - render the appropriate component based on currentPage
   const renderPage = () => {
     switch(currentPage) {
