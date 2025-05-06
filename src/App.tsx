@@ -215,6 +215,143 @@ const App = () => {
       <p>Page content for "{title}" will be added soon.</p>
     </div>
   );
+  
+  // Curriculum component with weekly schedule
+  const Curriculum = () => (
+    <div className="p-4 md:p-6 max-w-5xl mx-auto">
+      <h2 className="text-xl font-bold mb-4">Curriculum</h2>
+      
+      <div className="mb-6">
+        <h3 className="text-lg font-semibold">Brainy Bunch – Week 1 Schedule (September)</h3>
+        <p><strong>Duration</strong>: 3 hours per day, Monday to Friday</p>
+        <p><strong>Time</strong>: 2:30 PM – 5:30 PM</p>
+      </div>
+      
+      <div className="overflow-x-auto mb-6">
+        <table className="min-w-full bg-white border border-gray-300">
+          <thead className="bg-gray-100">
+            <tr>
+              <th className="py-2 px-4 border-b border-r">Day</th>
+              <th className="py-2 px-4 border-b border-r">Time</th>
+              <th className="py-2 px-4 border-b">Activity</th>
+            </tr>
+          </thead>
+          <tbody>
+            {/* Monday */}
+            <tr>
+              <td className="py-3 px-4 border-b border-r font-semibold bg-blue-50" rowSpan={4}>
+                Monday
+              </td>
+              <td className="py-2 px-4 border-b border-r">2:30 – 3:00 PM</td>
+              <td className="py-2 px-4 border-b">Organizational Block: greeting, roll call, snack, name & gesture icebreaker</td>
+            </tr>
+            <tr>
+              <td className="py-2 px-4 border-b border-r">3:00 – 4:00 PM</td>
+              <td className="py-2 px-4 border-b">Creative Workshop: Collage "This is Me!" + group rules poster</td>
+            </tr>
+            <tr>
+              <td className="py-2 px-4 border-b border-r">4:00 – 5:00 PM</td>
+              <td className="py-2 px-4 border-b">Study Block: Homework in mini-groups (quiet, consultation, play zones)</td>
+            </tr>
+            <tr>
+              <td className="py-2 px-4 border-b border-r">5:00 – 5:30 PM</td>
+              <td className="py-2 px-4 border-b">Reflection & Free Time</td>
+            </tr>
+            
+            {/* Tuesday */}
+            <tr>
+              <td className="py-3 px-4 border-b border-r font-semibold bg-blue-50" rowSpan={4}>
+                Tuesday
+              </td>
+              <td className="py-2 px-4 border-b border-r">2:30 – 3:00 PM</td>
+              <td className="py-2 px-4 border-b">Organizational Block: greeting, roll call, snack</td>
+            </tr>
+            <tr>
+              <td className="py-2 px-4 border-b border-r">3:00 – 4:00 PM</td>
+              <td className="py-2 px-4 border-b">Outdoor Games: "Freeze!", "Collect Faster", "Color Hunt", "Big Step", "Ball Duel"</td>
+            </tr>
+            <tr>
+              <td className="py-2 px-4 border-b border-r">4:00 – 5:00 PM</td>
+              <td className="py-2 px-4 border-b">Study Block: Homework completion</td>
+            </tr>
+            <tr>
+              <td className="py-2 px-4 border-b border-r">5:00 – 5:30 PM</td>
+              <td className="py-2 px-4 border-b">Reflection & Free Time</td>
+            </tr>
+            
+            {/* Wednesday */}
+            <tr>
+              <td className="py-3 px-4 border-b border-r font-semibold bg-blue-50" rowSpan={4}>
+                Wednesday
+              </td>
+              <td className="py-2 px-4 border-b border-r">2:30 – 3:00 PM</td>
+              <td className="py-2 px-4 border-b">Organizational Block: greeting, roll call, snack, emotional release play</td>
+            </tr>
+            <tr>
+              <td className="py-2 px-4 border-b border-r">3:00 – 4:00 PM</td>
+              <td className="py-2 px-4 border-b">Creative Workshop: Watercolor painting "Summer Memory"</td>
+            </tr>
+            <tr>
+              <td className="py-2 px-4 border-b border-r">4:00 – 5:00 PM</td>
+              <td className="py-2 px-4 border-b">Study Block: Homework completion</td>
+            </tr>
+            <tr>
+              <td className="py-2 px-4 border-b border-r">5:00 – 5:30 PM</td>
+              <td className="py-2 px-4 border-b">Reflection & Free Time</td>
+            </tr>
+            
+            {/* Thursday */}
+            <tr>
+              <td className="py-3 px-4 border-b border-r font-semibold bg-blue-50" rowSpan={4}>
+                Thursday
+              </td>
+              <td className="py-2 px-4 border-b border-r">2:30 – 3:00 PM</td>
+              <td className="py-2 px-4 border-b">Organizational Block: greeting, roll call, snack</td>
+            </tr>
+            <tr>
+              <td className="py-2 px-4 border-b border-r">3:00 – 4:00 PM</td>
+              <td className="py-2 px-4 border-b">Literary Club: Listen & discuss <em>Room on the Broom</em> by Julia Donaldson</td>
+            </tr>
+            <tr>
+              <td className="py-2 px-4 border-b border-r">4:00 – 5:00 PM</td>
+              <td className="py-2 px-4 border-b">Study Block: Homework completion</td>
+            </tr>
+            <tr>
+              <td className="py-2 px-4 border-b border-r">5:00 – 5:30 PM</td>
+              <td className="py-2 px-4 border-b">Reflection & Free Time</td>
+            </tr>
+            
+            {/* Friday */}
+            <tr>
+              <td className="py-3 px-4 border-b border-r font-semibold bg-blue-50" rowSpan={4}>
+                Friday
+              </td>
+              <td className="py-2 px-4 border-b border-r">2:30 – 3:00 PM</td>
+              <td className="py-2 px-4 border-b">Organizational Block: greeting, roll call, snack</td>
+            </tr>
+            <tr>
+              <td className="py-2 px-4 border-b border-r">3:00 – 4:00 PM</td>
+              <td className="py-2 px-4 border-b">Creative Workshop: Collage "Magic Tree" using natural materials</td>
+            </tr>
+            <tr>
+              <td className="py-2 px-4 border-b border-r">4:00 – 5:00 PM</td>
+              <td className="py-2 px-4 border-b">Study Block: Homework completion</td>
+            </tr>
+            <tr>
+              <td className="py-2 px-4 border-b border-r">5:00 – 5:30 PM</td>
+              <td className="py-2 px-4 border-b">Reflection & Free Time</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      
+      <div className="bg-yellow-50 border-l-4 border-yellow-400 p-4 mb-4">
+        <p className="font-medium">
+          Note: This schedule is subject to change based on children's needs, weather conditions, and special circumstances.
+        </p>
+      </div>
+    </div>
+  );
 
   // Regulations component with resources list
   const Regulations = () => (
@@ -789,7 +926,7 @@ const App = () => {
       case "priorities":
         return <Page title="Our Priorities" />;
       case "curriculum":
-        return <Page title="Curriculum" />;
+        return <Curriculum/>;
       case "attendance-calendar":
         return <AttendanceCalendar />;
       case "feedback":
@@ -804,7 +941,7 @@ const App = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-indigo-50">
       <Navbar />
       <div className="container mx-auto">
         {renderPage()}
