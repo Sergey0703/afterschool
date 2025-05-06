@@ -32,7 +32,7 @@ const App = () => {
   };
 
 
-// Navbar component with motto under the logo in mobile view
+// Navbar component with all improvements
 const Navbar = () => (
   <nav className="bg-blue-600 text-white shadow-md">
     {/* Desktop navigation */}
@@ -121,48 +121,48 @@ const Navbar = () => (
     
     {/* Mobile navigation header */}
     <div className="md:hidden flex flex-col">
-      <div className="flex flex-col p-4">
-        <div className="flex justify-between items-center">
-          <div className="flex flex-col">
-            <div 
-              className="flex items-center cursor-pointer" 
-              onClick={() => navigateTo("home")}
-            >
-              <img 
-                src={logo} 
-                alt="Brainy Bunch Logo" 
-                className="w-14 h-14 rounded-full object-cover mr-2" 
-              />
+      <div className="flex p-4">
+        <div className="flex items-start">
+          <div 
+            className="flex items-center cursor-pointer" 
+            onClick={() => navigateTo("home")}
+          >
+            <img 
+              src={logo} 
+              alt="Brainy Bunch Logo" 
+              className="w-14 h-14 rounded-full object-cover mr-2" 
+            />
+            <div>
               <h1 className="text-lg font-bold leading-tight text-white">
                 Brainy Bunch
               </h1>
+              {/* Девиз прижат к логотипу, без эмодзи */}
+              <p className="text-white text-xs italic leading-none mt-0"
+                 style={{ fontFamily: "Arial, sans-serif", letterSpacing: "0.5px" }}>
+                Learn, laugh, grow together
+              </p>
             </div>
-            {/* Motto is now under the logo in mobile view */}
-            <p className="text-white text-xs font-medium italic tracking-wide ml-16 -mt-1"
-               style={{ fontFamily: "Arial, sans-serif", letterSpacing: "1px" }}>
-              <span className="mr-1">👍</span> Learn, laugh, grow together <span className="ml-1">👍</span>
-            </p>
           </div>
-          
-          <button 
-            onClick={toggleMobileMenu}
-            className="p-2 bg-white bg-opacity-20 rounded-md"
-            aria-label="Toggle navigation menu"
-          >
-            {mobileMenuOpen ? (
-              <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-              </svg>
-            ) : (
-              <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
-              </svg>
-            )}
-          </button>
         </div>
+
+        <button 
+          onClick={toggleMobileMenu}
+          className="p-2 bg-white bg-opacity-20 rounded-md ml-auto"
+          aria-label="Toggle navigation menu"
+        >
+          {mobileMenuOpen ? (
+            <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+            </svg>
+          ) : (
+            <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
+          )}
+        </button>
       </div>
       
-      {/* Mobile navigation menu - теперь без девиза внизу */}
+      {/* Mobile navigation menu */}
       {mobileMenuOpen && (
         <div className="pb-2 px-4">
           <ul className="flex flex-col gap-2">
