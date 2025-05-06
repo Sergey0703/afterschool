@@ -294,6 +294,16 @@ const App = () => {
       <div className="p-4 md:p-6 max-w-3xl mx-auto">
         <h2 className="text-xl font-bold mb-4">Contacts</h2>
         
+        {/* QR Code image */}
+        <div className="mb-6 text-center">
+          <img 
+            src="/qrcode.png" 
+            alt="QR code for Brainy Bunch" 
+            className="mx-auto max-w-[250px] h-auto"
+          />
+        </div>
+        
+        {/* Temporarily hidden address block 
         <div className="mb-6 bg-gray-50 p-4 rounded-lg border border-gray-200">
           <div className="flex flex-col md:flex-row md:justify-between">
             <div>
@@ -322,6 +332,7 @@ const App = () => {
             </div>
           </div>
         </div>
+        */}
         
         {submitted ? (
           <p className="text-green-600">Thank you! Your message has been sent.</p>
@@ -699,6 +710,7 @@ const App = () => {
         
         <div className="mb-4">
           <label className="block mb-1">Select Child:</label>
+          <span className="text-red-600 text-sm font-medium inline-block mb-2">(access for parents by password only)</span>
           <select
             value={selectedChild}
             onChange={handleChildChange}
